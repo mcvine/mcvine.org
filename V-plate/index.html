@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>MCViNE example: Vanadium plate</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script language="javascript" type="text/javascript" src="../flot/jquery.js"></script>
+<script src="../jquery-ui/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript"
+src="../flot/jquery.flot.js"></script>
+
+<script language="javascript" type="text/javascript" src="plotIQ.js"></script>
+
+<link href="../jquery-ui/jquery-ui.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../main.css">
+<link rel="stylesheet" type="text/css" href="main.css"> 
+
+</head>
+
+<body>
+
+<div id="page">
+<h1>Incoherent inelastic neutron scattering -- Vanadium</h1>
+<p>
+Incoherent inelastic neutron scattering spectra are easiest to
+interpret.
+The coherent neutron scattering length of Vanadium is far less than
+its incoherent neutron scattering length, making it an ideal example
+for illustrating incoherent inelastic scattering, and a standard
+calibration sample for neutron experiments.
+</p>
+
+<p>
+The one-phonon incoherent inelastic neutron scattering cross section
+for a single-element material is given by
+</p>
+$$
+  \left( \frac{d^2\sigma}{d\Omega dE_f} \right)  _{\pm 1} = 
+  \frac{\sigma_{inc}}{4\pi} \frac{k_f}{k_i} N \; \frac{\hbar^2Q^2}{2M} \exp(-2W) 
+  \frac{Z(E)}{E} 
+  \left \{ \coth \left( \frac{\hbar \omega}{2k_B T} \right) \pm 1 \right \}/2
+$$
+
+<p>
+where $k_i$, $k_f$ is the momentum of the incident and outgoing neutron,
+respectively,
+$Q$ is the momentum transfer, $E$ is the energy transfer,
+$\left\{ \coth \left(\frac{\hbar \omega}{2k_B T} \right) \pm 1 \right\}/2$ is the thermal factor,
+and 
+$Z(E)$ is the phonon density of states as a function of phonon
+energy $E$, which is the main input of the kernel.
+<p>
+
+<p>
+Let us take a more careful look at the various factors in this
+formula.
+It only depends on the phonon Density of States (DOS) of the sample.
+This property makes the spectra easy to understand and interpret.
+</p>
+
+<p>
+The factor $2W$ is the Debye-Waller factor
+$$
+ 2W = \frac{\hbar^2 Q^2}{2M} \int \frac{1}{\hbar\omega}
+\coth(\frac{1}{2}\beta \hbar \omega) Z(\omega) d\omega
+$$
+</p>
+
+<p>
+which can be rewritten as
+</p>
+
+$$
+ 2W = C_{DW} Q^2
+$$
+
+and
+
+$$
+ C_{DW} = \frac{\hbar^2}{2M} \int \frac{1}{\hbar\omega}
+\coth(\frac{1}{2}\beta \hbar \omega) Z(\omega) d\omega
+$$
+
+<p>
+ The $Q$ dependency of the spectrum is solely determined by the term
+</p>
+
+$$ \frac{\hbar^2 Q^2}{2M} \exp(-C_{DW} Q^2) $$
+
+<p>
+  The following interactive plot shows how this function varies
+  as the value of $C_{DW}$ changes.
+</p>
+
+<table id="IQ_i_plot">
+  <tr>
+    <td>
+    <div id="IQ_plot" style="width: 500px; height:300px;">
+    </div>
+    </td>
+
+    <td>
+    <div id="IQ_plot_contoller_container">
+      <div id="IQ_plot_CDW_slider"></div>
+      </div>
+    </td>
+
+    <td>
+      $C_{DW} = $ <label id="CDW_value"></label>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+// $(mcvine.plotIQ("IQ_plot", 1));
+$(mcvine.createInteractiveIQPlot("IQ_i_plot"));
+// Add the Flot version string to the footer
+// $("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
+</script>
+
+<hr>
+<address></address>
+</body> </html>
