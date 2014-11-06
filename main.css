@@ -30,3 +30,12 @@ body {
     padding: 30px;
     width: 901px;
 }
+
+
+.case-container td {
+    padding: 2em;
+}
+.case-container .label {
+    font-size: 1.3em;
+}
+

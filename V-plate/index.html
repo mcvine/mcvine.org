@@ -41,7 +41,7 @@ $("#header").load("header.html");
 <h1>Incoherent inelastic neutron scattering -- Vanadium</h1>
 
 <h2>Typical data</h2>
-<img src="../Vplate-exp-IQE.jpg" width="500px">
+<img src="../V-plate/exp-IQE.jpg" width="500px">
 
 <h2>Scattering Cross Section</h2>  
 <p>
@@ -143,10 +143,31 @@ $(mcvine.createInteractiveIQPlot("IQ_i_plot"));
 </script>
 
 <h3>E-dependency</h3>
+is governed by 
 $$
 \frac{Z(E)}{E} 
 \left \{ \coth \left( \frac{\hbar \omega}{2k_B T} \right) \pm 1 \right \}/2
 $$
+
+Both 
+the thermal factor
+$ \left \{ \coth \left( \frac{\hbar \omega}{2k_B T} \right)\pm 1 \right \}/2$
+and density of states $Z(E)$ are easy to understand.
+
+The additional $\frac{1}{E}$ factor comes from the amplitude of the
+vibration:
+
+$$
+ \hbar \omega \sim  m  \omega^2 \langle u^2 \rangle
+$$
+
+and
+$$
+ \langle u^2 \rangle \sim 1/\omega \sim 1/E
+$$
+
+<h2>MCViNE simulation results</h2>
+
 
 <hr>
 <address></address>
