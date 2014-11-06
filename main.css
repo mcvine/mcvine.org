@@ -1,5 +1,23 @@
+#header-left {
+    width: 200px;
+    float: left;
+}
+#header-left a{
+    color: blue;
+    text-decoration: none;
+}
+#header-middle {
+    overflow: hidden;
+}
+#header-right {
+    width: 250px;
+    float: right;
+}
+
 body {
-    background: none repeat scroll 0 0 #eee;
+    background: none repeat scroll 0 0 #333;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Arial, sans-serif;
+    font-size: 14px;
 }
 
 #page {

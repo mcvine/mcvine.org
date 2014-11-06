@@ -6,13 +6,22 @@
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
 <script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+ src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+<!--
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+-->
 
 <script language="javascript" type="text/javascript" src="../flot/jquery.js"></script>
 <script src="../jquery-ui/jquery-ui.js"></script>
 <script language="javascript" type="text/javascript"
 src="../flot/jquery.flot.js"></script>
+
+<script> 
+$(function(){
+$("#header").load("header.html"); 
+});
+</script>
 
 <script language="javascript" type="text/javascript" src="plotIQ.js"></script>
 
@@ -25,7 +34,16 @@ src="../flot/jquery.flot.js"></script>
 <body>
 
 <div id="page">
+
+<div id="header">
+</div>
+
 <h1>Incoherent inelastic neutron scattering -- Vanadium</h1>
+
+<h2>Typical data</h2>
+<img src="../Vplate-exp-IQE.jpg" width="500px">
+
+<h2>Scattering Cross Section</h2>  
 <p>
 Incoherent inelastic neutron scattering spectra are easiest to
 interpret.
@@ -56,6 +74,7 @@ $Z(E)$ is the phonon density of states as a function of phonon
 energy $E$, which is the main input of the kernel.
 <p>
 
+<h3>Q-dependency</h3>
 <p>
 Let us take a more careful look at the various factors in this
 formula.
@@ -122,6 +141,12 @@ $(mcvine.createInteractiveIQPlot("IQ_i_plot"));
 // Add the Flot version string to the footer
 // $("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
 </script>
+
+<h3>E-dependency</h3>
+$$
+\frac{Z(E)}{E} 
+\left \{ \coth \left( \frac{\hbar \omega}{2k_B T} \right) \pm 1 \right \}/2
+$$
 
 <hr>
 <address></address>
