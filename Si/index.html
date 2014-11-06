@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>MCViNE example: Single Crystal Phonon Scattering</title>
+
+<script language="javascript" type="text/javascript" src="../flot/jquery.js"></script>
+
+<script> 
+$(function(){
+$("#header").load("header.html");
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+ src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<link href="../jquery-ui/jquery-ui.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../main.css">
+
+</head>
+
+<body>
+
+<div id="page">
+
+<div id="header">
+</div>
+
+<h1>Single Crystal Phonon Scattering - Si in diamond structure</h1>
+
+The differential cross section is given by
+$$
+\begin{aligned}
+  {\left(\frac{d^2\sigma}{d\Omega dE_f}\right)}_{\rm{coh}+1}
+= &amp;
+  \frac{k_f}{k_i} \frac{(2\pi)^3}{2v_0} 
+  \sum_s \sum_{\mathbf{\tau}} 
+  \frac{1}{E_s}
+  \left| \sum_d \frac{\overline{b_d}}{\sqrt{M_d}} exp(-W_d)
+   exp(i\mathbf(Q) . \mathbf{d}) \right|^2 \\
+  &amp;
+  \times (n_s + 1) \delta(\omega - \omega_s) \delta(\mathbf{Q}-\mathbf{q}-\mathbf{\tau})
+\end{aligned}
+$$
+
+<h3>Experimental data</h3>
+<img src="exp-IxE.jpg" width="500px">
+
+<h3>Modeling</h3>
+
+Phonon energies and polarizations were computed from VASP and phonopy.
+
+<img src="modeling-IxE.jpg" width="500px">
+
+
+<hr>
+<address></address>
+</body> </html>
