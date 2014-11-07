@@ -39,3 +39,9 @@ body {
     font-size: 1.3em;
 }
 
+
+.figure {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
