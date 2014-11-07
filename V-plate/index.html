@@ -23,7 +23,7 @@ $("#header").load("header.html");
 });
 </script>
 
-<script language="javascript" type="text/javascript" src="plotIQ.js"></script>
+<script language="javascript" type="text/javascript" src="plot.js"></script>
 
 <link href="../jquery-ui/jquery-ui.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../main.css">
@@ -61,32 +61,33 @@ $$
   \left( \frac{d^2\sigma}{d\Omega dE_f} \right)  _{\pm 1} = 
   \frac{\sigma_{inc}}{4\pi} \frac{k_f}{k_i} N \; \frac{\hbar^2Q^2}{2M} \exp(-2W) 
   \frac{Z(E)}{E} 
-  \left \{ \coth \left( \frac{\hbar \omega}{2k_B T} \right) \pm 1 \right \}/2
+  \left \{ \coth \left( \frac{E}{2k_B T} \right) \pm 1 \right \}/2
 $$
 
 <p>
 where $k_i$, $k_f$ is the momentum of the incident and outgoing neutron,
 respectively,
 $Q$ is the momentum transfer, $E$ is the energy transfer,
-$\left\{ \coth \left(\frac{\hbar \omega}{2k_B T} \right) \pm 1 \right\}/2$ is the thermal factor,
+$\left\{ \coth \left(\frac{E}{2k_B T} \right) \pm 1 \right\}/2$ is the thermal factor,
 and 
 $Z(E)$ is the phonon density of states as a function of phonon
-energy $E$, which is the main input of the kernel.
+energy $E$.
 <p>
 
 <h3>Q-dependency</h3>
 <p>
+One can see the (Q,E) distribution solly depends on
+the phonon Density of States (DOS) of the sample.
+This property makes the spectra easy to understand and interpret.
 Let us take a more careful look at the various factors in this
 formula.
-It only depends on the phonon Density of States (DOS) of the sample.
-This property makes the spectra easy to understand and interpret.
 </p>
 
 <p>
 The factor $2W$ is the Debye-Waller factor
 $$
- 2W = \frac{\hbar^2 Q^2}{2M} \int \frac{1}{\hbar\omega}
-\coth(\frac{1}{2}\beta \hbar \omega) Z(\omega) d\omega
+ 2W = \frac{\hbar^2 Q^2}{2M} \int \frac{1}{E}
+\coth(\frac{1}{2}\beta E) Z(E) dE
 $$
 </p>
 
@@ -101,8 +102,8 @@ $$
 and
 
 $$
- C_{DW} = \frac{\hbar^2}{2M} \int \frac{1}{\hbar\omega}
-\coth(\frac{1}{2}\beta \hbar \omega) Z(\omega) d\omega
+ C_{DW} = \frac{\hbar^2}{2M} \int \frac{1}{E}
+\coth(\frac{1}{2}\beta E) Z(E) dE
 $$
 
 <p>
@@ -112,11 +113,11 @@ $$
 $$ \frac{\hbar^2 Q^2}{2M} \exp(-C_{DW} Q^2) $$
 
 <p>
-  The following interactive plot shows how this function varies
-  as the value of $C_{DW}$ changes.
+The following is an interactive plot of I(Q)
+in which you can play with the $C_{DW}$ factor.
 </p>
 
-<table id="IQ_i_plot">
+<table id="IQ_i_plot" class="plot-container">
   <tr>
     <td>
     <div id="IQ_plot" style="width: 500px; height:300px;">
@@ -125,14 +126,15 @@ $$ \frac{\hbar^2 Q^2}{2M} \exp(-C_{DW} Q^2) $$
 
     <td>
     <div id="IQ_plot_contoller_container">
-      <div id="IQ_plot_CDW_slider"></div>
-      </div>
+      $C_{DW} = $ <label id="CDW_value"></label>
+    <div id="IQ_plot_CDW_slider" class="slider"></div>
+    </div>
+
+    $Q_{max} = $ <label id="Qmax_value"></label>
+    <div id="IQ_plot_Qmax_slider" class="slider"></div>
     </td>
 
-    <td>
-      $C_{DW} = $ <label id="CDW_value"></label>
-    </td>
-  </tr>
+ </tr>
 </table>
 
 <script type="text/javascript">
@@ -146,12 +148,12 @@ $(mcvine.createInteractiveIQPlot("IQ_i_plot"));
 is governed by 
 $$
 \frac{Z(E)}{E} 
-\left \{ \coth \left( \frac{\hbar \omega}{2k_B T} \right) \pm 1 \right \}/2
+\left \{ \coth \left( \frac{E}{2k_B T} \right) \pm 1 \right \}/2
 $$
 
 Both 
 the thermal factor
-$ \left \{ \coth \left( \frac{\hbar \omega}{2k_B T} \right)\pm 1 \right \}/2$
+$ \left \{ \coth \left( \frac{E}{2k_B T} \right)\pm 1 \right \}/2$
 and density of states $Z(E)$ are easy to understand.
 
 The additional $\frac{1}{E}$ factor comes from the amplitude of the
@@ -165,6 +167,44 @@ and
 $$
  \langle u^2 \rangle \sim 1/\omega \sim 1/E
 $$
+
+The following is an interactive plot of the thermal factor.
+You can play with the temperature slider on the right to see how
+detailed balance change with temperature.
+
+<table id="ThermIE_i_plot" class="plot-container">
+  <tr>
+    <td>
+    <div id="ThermIE_plot" style="width: 500px; height:300px;">
+    </div>
+    </td>
+
+    <td>
+    <div id="ThermIE_plot_contoller_container">
+      $T = $ <label id="T_value"></label>
+    <div id="ThermIE_plot_T_slider" class="slider"></div>
+    </div>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+$(mcvine.createInteractiveThermIEPlot("ThermIE_i_plot"));
+</script>
+
+One observation of this plot is that the thermal factor diverges
+near $E=0$.
+Indeed, it diverges by $1/E$ near $E=0$.
+Considering the additional $1/E$ factor from the amplitude of
+vibration,
+the scattering intensity would have diverged by $1/E^2$
+without considering the behavior of the density of states.
+Actually, for 3D systems, the behavior of DOS near $E=0$ goes with
+
+$$ Z(E) \sim E^2 $$
+
+and the one-phonon scattering intensity should approach a constant at
+$E=0$.
 
 <h2>MCViNE simulation results</h2>
 <img src="sim-IQE.jpg" width="500px">

@@ -1,8 +1,9 @@
-#IQ_plot_CDW_slider {
-    height: 240px;
-    margin-left: 50px;
+.plot-container .slider{
+    height: 20px;
+    width: 200px;
+    margin: 10px 50px 50px;
 }
-#IQ_i_plot td {
+.plot-container td {
     padding: 10px;
 }
 
