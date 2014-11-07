@@ -40,8 +40,11 @@ $("#header").load("header.html");
 
 <h1>Incoherent inelastic neutron scattering -- Vanadium</h1>
 
-<h2>Typical data</h2>
-<img src="../V-plate/exp-IQE.jpg" width="500px">
+<h2>Experimental data</h2>
+The following is a typical experiment I(Q,E) data for a Vanadium plate
+measured at the SNS ARCS insturment.
+
+<img class="figure"  src="../V-plate/exp-IQE.jpg" width="500px">
 
 <h2>Scattering Cross Section</h2>  
 <p>
@@ -206,8 +209,30 @@ $$ Z(E) \sim E^2 $$
 and the one-phonon scattering intensity should approach a constant at
 $E=0$.
 
+<h3>Modeled IQE</h3>
+<p>
+As shown above, the $Q$ and $E$ dependencies of scattering intensities for incoherent
+phonon scattering are separable, and it is easy to model the full
+$I(Q,E)$ given Density of States:
+</p>
+
+<img class="figure" src="modeled-IQE.jpg" width="500px">
+
+
+<h3>Dark angle</h3>
+
+<h3>Multi-phonon scattering</h3>
+
+
 <h2>MCViNE simulation results</h2>
-<img src="sim-IQE.jpg" width="500px">
+<p>
+MCViNE simulation automatically takes care of all the factors
+presented above.
+In addition, it also takes care of factors such as instrument resolution,
+dynamical range, sample geometry, and multiple scattering.
+</p>
+
+<img class="figure"  src="sim-IQE.jpg" width="500px">
 
 <hr>
 <address></address>
