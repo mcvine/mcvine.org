@@ -17,6 +17,7 @@ $("#header").load("../template/header.html");
 
 <link href="../jquery-ui/jquery-ui.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../main.css">
+<link rel="stylesheet" type="text/css" href="main.css">
 
 </head>
 
@@ -26,29 +27,71 @@ $("#header").load("../template/header.html");
 <div id="header">
 </div>
 
-<h1>Single Crystal Spectra from Direct Geometry Inelastic Neutron
+<h1>Single Crystal Scan Curves from Direct Geometry Inelastic Neutron
 Spectrometers</h1>
 
 
 <script>
 $(document).ready(function() {
 // mcvine.example.plot_one_hE_curve("plot");
-mcvine.example.plot_hE_curves("plot");
+// mcvine.example.plot_hE_curves("plot");
+mcvine.UI.initSlicePlot("plot");
 });
 </script>
 
-<table>
+<table class="config">
   <tr>
     <td>
-    <div id="plot" style="width: 500px; height:300px;"> </div>
+      Incident Energy:<br>
+      Ei: <input id="Ei" value="100"> </input>
+      <br>
+      Reciprocal basis vectors<br>
+      <textarea style="width:300px; height:60px;" id="rbase">
+a = 5.431;
+rbase = [[1/a, 0,0], [0,1/a,0], [0,0,1/a]];
+      </textarea>
+      <br>
+      Orientation:<br>
+      u: <input id="u" value="-1,1,-1"> </input>
+      <br>
+      v: <input id="v" value="2,1,-1"> </input>
+      <br>
     </td>
 
     <td>
-      
+      h axis:<br>
+      min: <input id="hmin" value="-12"> </input>
+      <br>
+      max: <input id="hmax" value="0"> </input>
+      <br>
+      k: <input id="k" value="0"> </input>
+      <br>
+      l: <input id="l" value="0"> </input>
+      <br>
+      E axis:<br>
+      min: <input id="Emin" value="0"> </input>
+      <br>
+      max: <input id="Emax" value="100"> </input>
+      <br>
+      psi axis:<br>
+      min: <input id="psimin" value="5"> </input>
+      <br>
+      max: <input id="psimax" value="90"> </input>
+      <br>
+    </td>
+    
+    <td>
+      <button id="Si_example">Si example</button>      
     </td>
   </tr>
 </table>
 
+<div>
+  <button id="update">Update</button>
+</div>
+<br>
+
+<div id="plot" style="width: 700px; height:430px;"> </div>
 
 </div> <!-- page -->
 

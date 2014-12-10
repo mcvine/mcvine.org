@@ -1,4 +1,72 @@
 (function(mcvine, $, undefined) {
+  
+  // UI
+  mcvine.UI = {};
+  //
+  mcvine.UI.initSlicePlot = function(plotdiv) {
+    mcvine.UI.hESliceUpdate(plotdiv);
+    $("#update").click(function(){
+	mcvine.UI.hESliceUpdate(plotdiv);
+      });
+    $("#Si_example").click(function(){
+	populate_Si_exampleconfig();
+	$("#update").click();
+      });
+  };
+  function populate_Si_exampleconfig()
+  {
+    var rbase = "a = 5.431; \nrbase = [[1/a, 0,0], [0,1/a,0], [0,0,1/a]];";
+    var haxis = new mcvine.Axis(-12, 0, 0);
+    var Eaxis = new mcvine.Axis(0, 100, 0);
+    var psiaxis = new mcvine.Axis(5, 90, 0);
+    populate_exampleconfig(100, rbase, "-1,1,-1", "2,1,-1", haxis, 0, 0, Eaxis, psiaxis);
+  }
+  function populate_exampleconfig(Ei, rbase, u, v, haxis, k, l, Eaxis, psiaxis){
+    $("#Ei").val(Ei);
+    $("#rbase").val(rbase);
+    $("#u").val(u);
+    $("#v").val(v);
+    $("#hmin").val(haxis.min);
+    $("#hmax").val(haxis.max);
+    $("#k").val(k);
+    $("#l").val(l);
+    $("#Emin").val(Eaxis.min);
+    $("#Emax").val(Eaxis.max);
+    $("#psimin").val(psiaxis.min);
+    $("#psimax").val(psiaxis.max);
+  }
+  //
+  mcvine.UI.hESliceUpdate = function(plotdiv) {
+    var hmin = Number($("#hmin").val()), hmax = Number($("#hmax").val());
+    var dh = (hmax-hmin)/80;
+    var haxis = new mcvine.Axis(hmin, hmax, dh);
+
+    var k = Number($("#k").val()), l = Number($("#l").val());
+    
+    var Emin = Number($("#Emin").val()), Emax = Number($("#Emax").val());
+    var Eaxis=new mcvine.Axis(Emin, Emax, 0);
+    
+    var psimin = Number($("#psimin").val()), psimax = Number($("#psimax").val());
+    var dpsi = Math.round((psimax-psimin)/8);
+    var psiaxis = new mcvine.Axis(psimin, psimax, dpsi);
+    
+    var code = $("#rbase").text();
+    eval(code); // got rbase
+    var ra = numeric['*'](rbase[0], TWOPI); 
+    var rb = numeric['*'](rbase[1], TWOPI); 
+    var rc = numeric['*'](rbase[2], TWOPI);
+    var u = s2v($("#u").val());
+    var v = s2v($("#v").val());
+    
+    var xtalori = new mcvine.XtalOri(ra, rb, rc, u, v, 0);
+    var Ei = Number($("#Ei").val());
+    
+    mcvine.plot_hE_curves(plotdiv, haxis, Eaxis, psiaxis, k, l, xtalori, Ei, mcvine.example.CBD_all);
+  };
+  function s2v(s)
+  {
+    return JSON.parse('['+s+']');
+  }
 
   // examples
   mcvine.example = {};
@@ -48,7 +116,7 @@
   
   mcvine.plot_hE_curves = function(div, haxis, Eaxis, psiaxis, k, l, xtalori, Ei, covered_by_detector) {
     var data = [];
-    for (var psi=psiaxis.min; psi<psiaxis.max; psi+=psiaxis.delta) {
+    for (var psi=psiaxis.min; psi<psiaxis.max+psiaxis.delta/2; psi+=psiaxis.delta) {
       xtalori.psi = psi * DEG2RAD;
       var data1 = mcvine.compute_hE_curve 
 	(haxis.min, haxis.max, haxis.delta, k, l, xtalori, Ei, covered_by_detector);
