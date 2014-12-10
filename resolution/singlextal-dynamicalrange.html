@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title></title>
+<script language="javascript" type="text/javascript" src="../flot/jquery.js"></script>
+<script src="../jquery-ui/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript"
+src="../flot/jquery.flot.js"></script>
+<script src="../numeric.min.js"></script>
+
+<script src="plotSlice.js"></script>
+
+<script> 
+$(function(){
+$("#header").load("../template/header.html"); 
+});
+</script>
+
+<link href="../jquery-ui/jquery-ui.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../main.css">
+
+</head>
+
+<body>
+<div id="page">
+
+<div id="header">
+</div>
+
+<h1>Single Crystal Spectra from Direct Geometry Inelastic Neutron
+Spectrometers</h1>
+
+
+<script>
+$(document).ready(function() {
+// mcvine.example.plot_one_hE_curve("plot");
+mcvine.example.plot_hE_curves("plot");
+});
+</script>
+
+<table>
+  <tr>
+    <td>
+    <div id="plot" style="width: 500px; height:300px;"> </div>
+    </td>
+
+    <td>
+      
+    </td>
+  </tr>
+</table>
+
+
+</div> <!-- page -->
+
+<hr>
+<address></address>
+</body> </html>
