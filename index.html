@@ -6,10 +6,20 @@
 <link rel="stylesheet" type="text/css" href="main.css"> 
 
 <script language="javascript" type="text/javascript" src="flot/jquery.js"></script>
-<script> 
-$(function(){
-$("#header").load("header.html"); 
-});
+<script>
+$(
+ function(){
+  $("#header").load("header.html");
+  $(".case-container").hover(function() {
+    $(".case-container").removeClass("active");
+    $(this).addClass("active");
+  });
+  $(".case-container").click(function() {
+    var url = $(this).find('.label').find('a').attr("href");
+    window.location.replace(url);
+  });
+ }
+);
 </script>
 
 </head>
@@ -31,18 +41,20 @@ Support for Virtual Neutron Facility at SNS</h1>
     
     <td>
       <div class="label">
-	Spin wave
+	<a href="KVO/index.html">Spin wave</a>
       </div>
     </td>
   </tr>
 </table>
 
 
+
 <table class="case-container">
   <tr>
    <td>
       <div class="label">
-	Coherent phonon scattering from single crystal sample
+	<a href="Si/index.html"> Coherent phonon scattering from
+  single crystal sample </a>
       </div>
     </td>
 
@@ -53,6 +65,7 @@ Support for Virtual Neutron Facility at SNS</h1>
 </table>
 
 
+
 <table class="case-container">
   <tr>
     <td>
@@ -61,19 +74,21 @@ Support for Virtual Neutron Facility at SNS</h1>
     
     <td>
       <div class="label">
-	Coherent inelastic phonon scattering from powder
+	<a href="Al/index.html"> Coherent inelastic phonon scattering
+      from powder </a>
       </div>
     </td>
   </tr>
 </table>
 
 
+
 <table class="case-container">
   <tr>
     <td>
       <div class="label">
-	Simplest inelastic scattering -- Incoherent inelastic phonon
-  scattering
+	<a href="V-plate/index.html"> Simplest inelastic scattering -- Incoherent inelastic phonon
+  scattering </a>
       </div>
     </td>
     
@@ -87,6 +102,6 @@ Support for Virtual Neutron Facility at SNS</h1>
 
 <hr>
 <address></address>
-<!-- hhmts start --> Last modified: Fri Nov  7 11:14:11 PST 2014 <!-- hhmts end -->
+<!-- hhmts start --> Last modified: Tue Nov 11 07:33:21 EST 2014 <!-- hhmts end -->
   </div>
 </body> </html>
