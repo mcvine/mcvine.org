@@ -88,7 +88,7 @@
     $( "#ThermIE_plot_T_slider" ).slider({
       orientation: "horizontal",
 	  range: "min",
-	  min: 0,
+	  min: 1,
 	  max: 1200,
 	  step: 10,
 	  value: initval,
