@@ -4,7 +4,6 @@
   mcvine.UI = {};
   //
   mcvine.UI.initSlicePlot = function(plotdiv) {
-    mcvine.UI.hESliceUpdate(plotdiv);
     $("#update").click(function(){
 	mcvine.UI.hESliceUpdate(plotdiv);
       });
@@ -12,13 +11,14 @@
 	populate_Si_exampleconfig();
 	$("#update").click();
       });
+    $("#Si_example").click();
   };
   function populate_Si_exampleconfig()
   {
     var rbase = "a = 5.431; \nrbase = [[1/a, 0,0], [0,1/a,0], [0,0,1/a]];";
     var haxis = new mcvine.Axis(-12, 0, 0);
     var Eaxis = new mcvine.Axis(0, 100, 0);
-    var psiaxis = new mcvine.Axis(5, 90, 0);
+    var psiaxis = new mcvine.Axis(5, 50, 0);
     populate_exampleconfig(100, rbase, "-1,1,-1", "2,1,-1", haxis, 0, 0, Eaxis, psiaxis);
   }
   function populate_exampleconfig(Ei, rbase, u, v, haxis, k, l, Eaxis, psiaxis){
