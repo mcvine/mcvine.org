@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<script language="javascript" type="text/javascript"
+src="math.min.js"></script>
+<title></title>
+</head>
+
+<body>
+<h1></h1>
+
+<script>
+function print (value) {
+  var precision = 14;
+  console.log(math.format(value, precision));
+}
+
+// create matrices and arrays. a matrix is just a wrapper around an Array,
+// providing some handy utilities.
+console.log('create a matrix');
+var a = math.matrix([1, 4, 9, 16, 25]);
+print(a);                                  // [1, 4, 9, 16, 25]
+var b = math.matrix(math.ones([2, 3]));
+print(b);                                  // [[1, 1, 1], [1, 1, 1]]
+print(b.size());                           // [2, 3]
+</script>
+
+<hr>
+<address></address>
+<!-- hhmts start --> Last modified: Tue Dec  9 10:02:57 PST 2014 <!-- hhmts end -->
+</body> </html>
