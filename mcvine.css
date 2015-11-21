@@ -1,6 +1,10 @@
 /* <link href="jquery-ui/jquery-ui.css" rel="stylesheet"> */
 @import url("jquery-ui/jquery-ui.css");
 
+div.horizontal {
+    display: inline-block;
+}
+
 body {
     background: none repeat scroll 0 0 #333;
     font-family: Optima, Segoe, "Segoe UI", Candara, Arial, sans-serif;
@@ -37,41 +41,45 @@ body div.top{
     padding: 0px 30px;
 }
 
-#header-left {
-    width: 200px;
-    height: 30px;
-    /* float: left; */
-    display: inline-block;
-}
-#header-left a{
-    color: blue;
+div.top a{
     text-decoration: none;
 }
-#header-middle {
-    /* overflow: hidden; */
-    width: 500px;
+#header-left {
+    width: 130px;
     height: 30px;
-    display: inline-block;
+}
+#header-left a{
+    color: gray;
+}
+#header-middle {
+    width: 570px;
+    height: 30px;
+}
+#header-middle div.horizontal{
+    padding: 0 10px;
+}
+#header-middle a{
+    font-size: 120%;
+    font-weight: bold;
+    color: #555;
+}
+#header-middle a:hover{
+    color: blue;
 }
 #header-right {
     width: 180px;
     height: 30px;
-    /* float: right; */
-    display: inline-block;
 }
 
 #footer-left {
     width: 240px;
-    display: inline-block;
 }
 #footer-middle {
     border: 0;
     width: 400px;
-    display: inline-block;
 }
 #footer-right {
     width: 245px;
-    display: inline-block;
     padding: 4px;
 }
 
