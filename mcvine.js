@@ -16,7 +16,7 @@
 	    // this line has to be the last
 	    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 	});
-	
+
     };
     
 } (window.mcvine=window.mcvine || {}, jQuery));

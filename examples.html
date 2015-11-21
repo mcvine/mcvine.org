@@ -1,30 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html> <head>
 <title>MCViNE</title>
-
-<link href="jquery-ui/jquery-ui.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="main.css"> 
-
 <script language="javascript" type="text/javascript" src="flot/jquery.js"></script>
-<script>
-$(
- function(){
-  $("#header").load("header.html");
-  $("#footer").load("footer.html");
-  $(".case-container").hover(function() {
-    $(".case-container").removeClass("active");
-    $(this).addClass("active");
-  });
- }
-);
-</script>
-
+<script src="mcvine.js"></script>
+<link rel="stylesheet" type="text/css" href="mcvine.css">
 </head>
 
 <body>
-
-<div id="header" class="top"></div>
-
 <div id="page" class="top">
   
 <!--
@@ -100,10 +81,19 @@ Support for Virtual Neutron Facility at SNS</h1>
 </table>
 </a>
 
-
-<address></address>
 </div> <!-- page -->
 
-<div id="footer" class="top"></div>
+<script>
+$(
+ function(){
+  $(".case-container").hover(function() {
+    $(".case-container").removeClass("active");
+    $(this).addClass("active");
+  });
+ }
+);
+  mcvine.init();
+</script>
 
-</body> </html>
+</body>
+</html>
