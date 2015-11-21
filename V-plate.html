@@ -1,39 +1,18 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html> <head>
 <title>MCViNE example: Vanadium plate</title>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script
-   type="text/javascript"
-   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
 <script language="javascript" type="text/javascript" src="flot/jquery.js"></script>
-<script src="jquery-ui/jquery-ui.js"></script>
-<script language="javascript" type="text/javascript"
-src="flot/jquery.flot.js"></script>
-
-<script> 
-$(function(){
-$("#header").load("header.html"); 
-});
-</script>
-
-<script language="javascript" type="text/javascript" src="V-plate/plot.js"></script>
-
-<link href="jquery-ui/jquery-ui.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="main.css">
+<script src="mcvine.js"></script>
+<script src="V-plate/plot.js"></script>
+<link rel="stylesheet" type="text/css" href="mcvine.css">
 <link rel="stylesheet" type="text/css" href="V-plate/main.css"> 
-
 </head>
 
 <body>
 
-<div id="page">
+<div id="page" class="top">
 
-<div id="header">
+<div class="navigation">
+<a href="examples.html">&lt Examples</a>
 </div>
 
 <h1>Incoherent inelastic neutron scattering -- Vanadium</h1>
@@ -232,6 +211,11 @@ dynamical range, sample geometry, and multiple scattering.
 
 <img class="figure"  src="V-plate/sim-IQE.jpg" width="500px">
 
-<hr>
-<address></address>
-</body> </html>
+</div> <!-- page -->
+
+<script>
+  mcvine.init();
+</script>
+
+</body>
+</html>
