@@ -1,6 +1,11 @@
 /* <link href="jquery-ui/jquery-ui.css" rel="stylesheet"> */
 @import url("jquery-ui/jquery-ui.css");
 
+
+img {
+    vertical-align: middle;
+}
+
 div.horizontal {
     display: inline-block;
 }
