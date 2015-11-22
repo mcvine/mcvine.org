@@ -2,6 +2,8 @@
 (function(mcvine, $, undefined) {
 
     mcvine.init = function(options) {
+
+	options = options || {};
 	
 	$(function(){
 	    $.getScript(
