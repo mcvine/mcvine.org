@@ -2,7 +2,6 @@
 <title>MCViNE example: Vanadium plate</title>
 <script language="javascript" type="text/javascript" src="flot/jquery.js"></script>
 <script src="mcvine.js"></script>
-<script src="V-plate/plot.js"></script>
 <link rel="stylesheet" type="text/css" href="mcvine.css">
 <link rel="stylesheet" type="text/css" href="V-plate/main.css"> 
 </head>
@@ -117,13 +116,6 @@ in which you can play with the $C_{DW}$ factor.
  </tr>
 </table>
 
-<script type="text/javascript">
-// $(mcvine.plotIQ("IQ_plot", 1));
-$(mcvine.createInteractiveIQPlot("IQ_i_plot"));
-// Add the Flot version string to the footer
-// $("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
-</script>
-
 <h3>E-dependency</h3>
 is governed by 
 $$
@@ -168,10 +160,6 @@ detailed balance change with temperature.
   </tr>
 </table>
 
-<script type="text/javascript">
-$(mcvine.createInteractiveThermIEPlot("ThermIE_i_plot"));
-</script>
-
 One observation of this plot is that the thermal factor diverges
 near $E=0$.
 Indeed, it diverges by $1/E$ near $E=0$.
@@ -214,7 +202,13 @@ dynamical range, sample geometry, and multiple scattering.
 </div> <!-- page -->
 
 <script>
-  mcvine.init();
+  var options = {onflot: function(){
+  $.getScript("V-plate/plot.js", function(){
+    $(mcvine.createInteractiveIQPlot("IQ_i_plot"));
+    $(mcvine.createInteractiveThermIEPlot("ThermIE_i_plot"));
+  });
+  }};
+  mcvine.init(options);
 </script>
 
 </body>

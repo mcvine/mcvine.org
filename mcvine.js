@@ -1,7 +1,7 @@
 
 (function(mcvine, $, undefined) {
 
-    mcvine.init = function() {
+    mcvine.init = function(options) {
 	
 	$(function(){
 	    $.getScript(
@@ -11,7 +11,7 @@
 		}
 	    );
 	    $.getScript("jquery-ui/jquery-ui.js");
-	    $.getScript("flot/jquery.flot.js");
+	    $.getScript("flot/jquery.flot.js", options.onflot);
     
 	    $('<div id="header" class="top">').insertBefore("#page");
 	    $("#header").load("header.html");
