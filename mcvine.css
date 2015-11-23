@@ -107,6 +107,7 @@ hr {
 }
 
 
+/* Examples first page */
 .case-container {
     cursor: pointer;
     margin: 0 auto;
@@ -136,4 +137,12 @@ hr {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Publications */
+a.headerlink {
+    color: transparent;
+}
+a.headerlink:hover {
+    color: blue;
 }
