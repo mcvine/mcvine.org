@@ -29,11 +29,8 @@ MCViNE is a major component of the Virtual Neutron Facility.
        height="40px"/>
 </a>
 
-<h2> News </h2>
-The introductory paper, version 2, was posted to arXiv:
-<a href="http://arxiv.org/abs/1504.02776">
-  MCViNE -- An object oriented Monte Carlo neutron ray tracing simulation package
-</a>
+<div id="news">
+</div>
 
 <h2> Team </h2>
 
@@ -65,6 +62,9 @@ the U.S. Department of Energy, Office of Basic Energy Sciences.
 </div> <!-- page -->
 
 <script>
+  $(function() {
+    $("#news").load("http://mcvine.github.io/mcvine/News.html #news");
+  });
   mcvine.init();
 </script>
 
