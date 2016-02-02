@@ -146,3 +146,8 @@ a.headerlink {
 a.headerlink:hover {
     color: blue;
 }
+
+/* Team */
+div#team {
+    padding-left: 3em;
+}
