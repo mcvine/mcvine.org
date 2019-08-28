@@ -28,7 +28,8 @@ body div.top{
     background-color: #e0e0e0;
     border-top: 0;
     border-bottom: 1px solid #b0b0b0;
-    padding: 0px 30px;
+    padding: 0px;
+    width: 961px;
 }
 #page {
     width: 901px;
@@ -40,7 +41,7 @@ body div.top{
 }
 
 #footer{
-    height: 30px;
+    /* height: 30px; */
     background-color: #eee;
     border-top: 0;
     border-bottom: 1px solid #dfdfdf;
@@ -50,6 +51,16 @@ body div.top{
 div.top a{
     text-decoration: none;
 }
+
+#header div.logo {
+    background-color: #247535;
+    width: 962px;
+}
+
+#header div.second {
+    padding: 0px 30px;
+}
+
 #header-left {
     width: 130px;
     height: 30px;
@@ -58,22 +69,22 @@ div.top a{
     color: gray;
 }
 #header-middle {
-    width: 570px;
+    width: 350px;
     height: 30px;
 }
-#header-middle div.horizontal{
+#header-menu div.horizontal{
     padding: 0 10px;
 }
-#header-middle a{
+#header-menu a{
     font-size: 120%;
     font-weight: bold;
     color: #555;
 }
-#header-middle a:hover{
+#header-menu a:hover{
     color: blue;
 }
-#header-right {
-    width: 180px;
+#header-menu {
+    width: 400px;
     height: 30px;
 }
 
@@ -150,4 +161,48 @@ a.headerlink:hover {
 /* Team */
 div#team {
     padding-left: 3em;
+}
+
+
+
+
+/* ORNL footer */
+
+#ornl-footer-area a {
+    color: #2db50e;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#ornl-footer-area {
+    /* background-color: white; */
+    width: 901px;
+    padding: 10px 0 0;
+}
+
+#ornl-footer-area a:focus,
+#ornl-footer-area a:hover {
+    color: #247751;
+    text-decoration: underline;
+}
+
+#ornl-footer-area .mandatory-links {
+    text-align: center;
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+#ornl-footer-area >div {
+}
+#ornl-footer-area .left {
+    width: 180px;
+}
+#ornl-footer-area .middle {
+    width: 450px;
+}
+#ornl-footer-area .right {
+    width: 200px;
+}
+#ornl-footer-area .branding-sponsor {
+    text-align: center;
 }
